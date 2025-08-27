@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday - Agent [BROTHER]</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #0d0d0d;
+        color: #e6e6e6;
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            #1a1a1a 0%,
+            transparent 20%
+          ),
+          radial-gradient(circle at 75% 75%, #1a1a1a 0%, transparent 20%);
+        background-size: 50px 50px;
+        overflow-x: hidden;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header Styles */
+      header {
+        text-align: center;
+        padding: 30px 0;
+        border-bottom: 1px solid #333;
+        position: relative;
+      }
+
+      .logo {
+        font-family: "Arial Narrow", Arial, sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 5px;
+        color: #ff3c3c;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        text-shadow: 0 0 10px rgba(255, 60, 60, 0.5);
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: #999;
+        letter-spacing: 2px;
+      }
+
+      /* Mission Briefing Section */
+      .mission-briefing {
+        background-color: rgba(26, 26, 26, 0.8);
+        border: 1px solid #333;
+        margin: 40px 0;
+        padding: 30px;
+        position: relative;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      }
+
+      .mission-briefing:before {
+        content: "TOP SECRET";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #0d0d0d;
+        padding: 0 15px;
+        font-size: 0.9rem;
+        color: #ff3c3c;
+        letter-spacing: 1px;
+      }
+
+      .mission-title {
+        font-size: 1.8rem;
+        color: #ff3c3c;
+        margin-bottom: 20px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .mission-content {
+        line-height: 1.6;
+        margin-bottom: 25px;
+      }
+
+      .target-photo {
+        width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        border: 3px solid #333;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        background: linear-gradient(45deg, #1a1a1a, #2a2a2a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ff3c3c;
+        font-style: italic;
+      }
+
+      .target-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ff6b6b;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+      }
+
+      /* Objectives Section */
+      .objectives {
+        margin: 40px 0;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        color: #ff3c3c;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+      }
+
+      .objective-list {
+        list-style-type: none;
+      }
+
+      .objective-list li {
+        padding: 15px;
+        margin-bottom: 10px;
+        background-color: rgba(26, 26, 26, 0.8);
+        border-left: 3px solid #ff3c3c;
+        position: relative;
+        padding-left: 40px;
+      }
+
+      .objective-list li:before {
+        content: "✓";
+        position: absolute;
+        left: 15px;
+        color: #ff3c3c;
+        font-weight: bold;
+      }
+
+      /* Birthday Message */
+      .birthday-message {
+        text-align: center;
+        padding: 40px;
+        margin: 40px 0;
+        background-color: rgba(26, 26, 26, 0.8);
+        border: 1px solid #333;
+        position: relative;
+      }
+
+      .birthday-text {
+        font-size: 2rem;
+        color: #ff3c3c;
+        margin-bottom: 20px;
+        text-shadow: 0 0 10px rgba(255, 60, 60, 0.5);
+      }
+
+      .signature {
+        font-style: italic;
+        color: #999;
+        margin-top: 20px;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        border-top: 1px solid #333;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      /* Hitman Easter Egg */
+      .silhouette {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 100px;
+        height: 200px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 200'%3E%3Cpath d='M50,20 C60,20 65,30 65,40 C65,50 60,55 50,55 C40,55 35,50 35,40 C35,30 40,20 50,20 Z M30,60 L70,60 L65,180 L35,180 Z' fill='%23333'/%3E%3C/svg%3E");
+        opacity: 0.1;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      /* Glitch effect */
+      .glitch {
+        position: relative;
+        animation: glitch 5s infinite;
+      }
+
+      @keyframes glitch {
+        0% {
+          text-shadow: 0 0 rgba(255, 0, 0, 0.5);
+        }
+        95% {
+          text-shadow: 0 0 rgba(255, 0, 0, 0.5);
+        }
+        96% {
+          text-shadow: -2px 0 rgba(255, 0, 0, 0.5), 2px 0 rgba(0, 0, 255, 0.5);
+        }
+        97% {
+          text-shadow: 2px 0 rgba(255, 0, 0, 0.5), -2px 0 rgba(0, 0, 255, 0.5);
+        }
+        98% {
+          text-shadow: -2px 0 rgba(255, 0, 0, 0.5), 2px 0 rgba(0, 0, 255, 0.5);
+        }
+        99% {
+          text-shadow: 2px 0 rgba(255, 0, 0, 0.5), -2px 0 rgba(0, 0, 255, 0.5);
+        }
+        100% {
+          text-shadow: 0 0 rgba(255, 0, 0, 0.5);
+        }
+      }
+
+      /* Interactive Button */
+      .cake-button {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 24px;
+        background: linear-gradient(to bottom, #ff3c3c, #d32f2f);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .cake-button:hover {
+        background: linear-gradient(to bottom, #ff6b6b, #ff3c3c);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+      }
+
+      .cake-button:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Cake Container */
+      #cakeContainer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s ease;
+      }
+
+      #cakeContainer.visible {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .cake {
+        position: relative;
+        width: 280px;
+        height: 220px;
+      }
+
+      .cake-piece {
+        position: absolute;
+        background: linear-gradient(to bottom, #f9c6aa, #e69c7c);
+        width: 280px;
+        height: 120px;
+        border-radius: 50% 50% 0 0;
+        bottom: 0;
+      }
+
+      .frosting {
+        position: absolute;
+        background: linear-gradient(to bottom, #ff7eb3, #ff5c93);
+        width: 280px;
+        height: 40px;
+        border-radius: 50%;
+        bottom: 120px;
+      }
+
+      .candle {
+        position: absolute;
+        background: linear-gradient(to bottom, #ffdd66, #ffcc33);
+        width: 16px;
+        height: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 160px;
+        border-radius: 8px;
+      }
+
+      .flame {
+        position: absolute;
+        background: linear-gradient(to bottom, #ffdd66, #ff9900);
+        width: 20px;
+        height: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 210px;
+        border-radius: 50% 50% 20% 20%;
+        animation: flicker 0.8s infinite alternate;
+        box-shadow: 0 0 20px #ff9900, 0 0 40px #ff5500;
+      }
+
+      @keyframes flicker {
+        0% {
+          transform: translateX(-50%) scale(1);
+        }
+        25% {
+          transform: translateX(-52%) scale(1.05);
+        }
+        50% {
+          transform: translateX(-48%) scale(0.95);
+        }
+        75% {
+          transform: translateX(-51%) scale(1.02);
+        }
+        100% {
+          transform: translateX(-50%) scale(1);
+        }
+      }
+
+      .decoration {
+        position: absolute;
+        background: #ff3c3c;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        bottom: 140px;
+      }
+
+      .decoration:nth-child(1) {
+        left: 40px;
+        background: #ff3c3c;
+      }
+
+      .decoration:nth-child(2) {
+        left: 100px;
+        background: #3cff3c;
+      }
+
+      .decoration:nth-child(3) {
+        right: 40px;
+        background: #3c3cff;
+      }
+
+      .decoration:nth-child(4) {
+        right: 100px;
+        background: #ffff3c;
+      }
+
+      .message {
+        position: absolute;
+        bottom: -60px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-size: 1.5rem;
+        text-align: center;
+        width: 100%;
+        text-shadow: 0 0 10px rgba(255, 60, 60, 0.8);
+      }
+
+      .close-cake {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      .close-cake:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* Particles */
+      .particle {
+        position: absolute;
+        background: #ffdd66;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
+      }
+
+      @keyframes particle-anim {
+        0% {
+          opacity: 1;
+          transform: translateY(0) rotate(0deg);
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-100px) rotate(360deg);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2rem;
+        }
+
+        .mission-title {
+          font-size: 1.5rem;
+        }
+
+        .birthday-text {
+          font-size: 1.5rem;
+        }
+
+        .target-photo {
+          width: 150px;
+          height: 150px;
+        }
+
+        .cake {
+          transform: scale(0.8);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="silhouette"></div>
+
+    <div class="container">
+      <header>
+        <div class="logo">ICA</div>
+        <div class="subtitle">International Contract Agency</div>
+      </header>
+
+      <section class="mission-briefing">
+        <h2 class="mission-title">Mission Briefing</h2>
+        <div class="mission-content">
+          <p>
+            Agent, your mission is to celebrate the birthday of our valuable
+            asset, codename:
+            <span class="glitch" style="color: #ff3c3c">Omran</span>.
+          </p>
+          <p>
+            This individual has provided exceptional service to the agency and
+            deserves proper recognition. Your objectives are outlined below.
+          </p>
+          <p>
+            Exercise extreme caution - the subject may be armed with cake and
+            surrounded by party favors.
+          </p>
+        </div>
+
+        <div class="target-photo">
+          <div class="target-image">
+            <img src="6bhm0.jpg" alt="O-man" />
+          </div>
+        </div>
+
+        <button class="cake-button" id="cakeButton">
+          DEPLOY BIRTHDAY CAKE
+        </button>
+      </section>
+
+      <section class="objectives">
+        <h3 class="section-title">Mission Objectives</h3>
+        <ul class="objective-list">
+          <li>Wish the target a happy birthday with maximum enthusiasm</li>
+          <li>Deliver any gifts or packages with precision timing</li>
+          <li>
+            Participate in celebratory activities without blowing your cover
+          </li>
+          <li>Ensure the birthday cake is properly neutralized (consumed)</li>
+          <li>Maintain a festive atmosphere throughout the operation</li>
+        </ul>
+      </section>
+
+      <section class="birthday-message">
+        <h2 class="birthday-text">HAPPY BIRTHDAY, BRO!</h2>
+        <p>Another year older, wiser, and more awesome than ever!</p>
+        <p>Hope you have an amazing day filled with all the things you love.</p>
+        <p>Remember, age is just a number, but swag is forever!</p>
+        <p class="signature">From your sibling who always has your back</p>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>
+          ICA Database | Security Clearance Level: Maximum | This message will
+          self-destruct in 10... 9... 8...
+        </p>
+      </div>
+    </footer>
+
+    <!-- Cake Container -->
+    <div id="cakeContainer">
+      <button class="close-cake">×</button>
+      <div class="cake">
+        <div class="cake-piece"></div>
+        <div class="frosting"></div>
+        <div class="candle"></div>
+        <div class="flame"></div>
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+        <div class="decoration"></div>
+        <div class="message">Happy Birthday!</div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const glitchElements = document.querySelectorAll(".glitch");
+        const cakeButton = document.getElementById("cakeButton");
+        const cakeContainer = document.getElementById("cakeContainer");
+        const closeCake = document.querySelector(".close-cake");
+
+        // Random glitch effect
+        setInterval(() => {
+          glitchElements.forEach((el) => {
+            if (Math.random() > 0.8) {
+              el.classList.add("glitch-effect");
+              setTimeout(() => {
+                el.classList.remove("glitch-effect");
+              }, 200);
+            }
+          });
+        }, 5000);
+
+        // Self-destruct countdown joke
+        const footer = document.querySelector("footer p");
+        const originalText = footer.textContent;
+        let countdown = 10;
+
+        const countdownInterval = setInterval(() => {
+          footer.textContent = footer.textContent.replace(
+            /\d+\.\.\./,
+            countdown + "..."
+          );
+          countdown--;
+
+          if (countdown < 0) {
+            clearInterval(countdownInterval);
+            footer.textContent = originalText.replace(
+              " | This message will self-destruct in 10... 9... 8...",
+              " | Message secure. No self-destruct necessary."
+            );
+          }
+        }, 1000);
+
+        // Cake button functionality
+        cakeButton.addEventListener("click", function () {
+          cakeContainer.classList.add("visible");
+          createParticles();
+        });
+
+        // Close cake
+        closeCake.addEventListener("click", function () {
+          cakeContainer.classList.remove("visible");
+        });
+
+        // Click outside to close
+        cakeContainer.addEventListener("click", function (e) {
+          if (e.target === cakeContainer) {
+            cakeContainer.classList.remove("visible");
+          }
+        });
+
+        // Create particles function
+        function createParticles() {
+          const particlesContainer = document.createElement("div");
+          particlesContainer.style.position = "fixed";
+          particlesContainer.style.top = "0";
+          particlesContainer.style.left = "0";
+          particlesContainer.style.width = "100%";
+          particlesContainer.style.height = "100%";
+          particlesContainer.style.pointerEvents = "none";
+          particlesContainer.style.zIndex = "1001";
+          document.body.appendChild(particlesContainer);
+
+          // Create particles
+          const colors = [
+            "#ff3c3c",
+            "#3cff3c",
+            "#3c3cff",
+            "#ffff3c",
+            "#ff3cff",
+            "#ff9933",
+            "#66ffff",
+          ];
+          for (let i = 0; i < 100; i++) {
+            const particle = document.createElement("div");
+            particle.classList.add("particle");
+
+            // Random properties
+            const size = Math.random() * 10 + 5;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            // Set styles
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.background = color;
+            particle.style.boxShadow = `0 0 ${size}px ${color}`;
+
+            // Position at random place at the bottom
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.bottom = "0";
+
+            // Add to container
+            particlesContainer.appendChild(particle);
+
+            // Animate
+            const animationDuration = Math.random() * 3000 + 2000;
+            particle.style.animation = `particle-anim ${animationDuration}ms forwards`;
+
+            // Remove after animation
+            setTimeout(() => {
+              particle.remove();
+            }, animationDuration);
+          }
+
+          // Remove container after all particles are gone
+          setTimeout(() => {
+            particlesContainer.remove();
+          }, 5000);
+        }
+      });
+    </script>
+  </body>
+</html>
